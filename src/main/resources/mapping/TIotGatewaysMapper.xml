@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TIotGatewaysMapper">
+
+    <select id="findByExtsno" resultType="com.example.bean.SubGateway">
+        select * from t_iot_sub_gateways where ext_sno = #{extsno}
+    </select>
+
+    <select id="findGatewayBySub" resultType="com.example.bean.Gateway">
+        select * from t_iot_gateways where 1 = 1
+        <if test="gwid != null">
+            id = #{gwid}
+        </if>
+    </select>
+</mapper>
